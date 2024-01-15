@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BatteryHolderScript : MonoBehaviour
 {
-
+    
     Rigidbody batteryRig;
     // Start is called before the first frame update
     void Start()
@@ -23,12 +23,11 @@ public class BatteryHolderScript : MonoBehaviour
         if (other.tag == "Battery" && !other.gameObject.GetComponent<GrabbableObjectBehaviour>().isGrabbed)
         {
             batteryRig = other.gameObject.GetComponent<Rigidbody>();
-            batteryRig.isKinematic = true;
             other.transform.position = transform.position;
             other.transform.rotation = transform.rotation;
         }
     }
-
+   
 
 
 }
