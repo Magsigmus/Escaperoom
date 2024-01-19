@@ -2027,7 +2027,7 @@ PrefabInstance:
         type: 3}
       propertyPath: revealedModels.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 954762391}
     - target: {fileID: 9045340528313810506, guid: 878275aebc234eb4b8b8c6657cfb43aa,
         type: 3}
       propertyPath: m_LocalPosition.x
