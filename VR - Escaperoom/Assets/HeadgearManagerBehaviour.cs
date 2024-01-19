@@ -23,10 +23,9 @@ public class HeadgearManagerBehaviour : MonoBehaviour
 
             if (currentHeadgear.GetComponent<GrabbableObjectBehaviour>().isGrabbed) 
             { 
-                currentHeadgear = null;
                 currentHeadgear.GetComponent<GrabbableObjectBehaviour>().Show();
-
                 foreach (MeshRenderer mr in revealedModels) { mr.enabled = false; }
+                currentHeadgear = null;
             }
         }
     }

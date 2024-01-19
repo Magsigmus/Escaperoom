@@ -446,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrabbed: 0
   modelParent: {fileID: 0}
+  models: []
 --- !u!1001 &164222910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -534,17 +535,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8bd76081ad71e23478e4ef227c062b85,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.005
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bd76081ad71e23478e4ef227c062b85,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.005
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bd76081ad71e23478e4ef227c062b85,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.005
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bd76081ad71e23478e4ef227c062b85,
         type: 3}
@@ -1314,7 +1315,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954762389}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1752,35 +1753,14 @@ GameObject:
   - component: {fileID: 1147290381}
   - component: {fileID: 1147290380}
   - component: {fileID: 1147290379}
-  - component: {fileID: 1147290378}
+  - component: {fileID: 1147290383}
   m_Layer: 0
   m_Name: Goggles
-  m_TagString: Untagged
+  m_TagString: Headgear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1147290378
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147290376}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.56552124, y: 0.22371656, z: 0.68536127}
-  m_Center: {x: -0.028804421, y: 0.17503634, z: 0.12547377}
 --- !u!114 &1147290379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,10 +1811,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1147290381}
+        m_TargetAssemblyTypeName: GrabbableObjectBehaviour, Assembly-CSharp
+        m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1147290381}
+        m_TargetAssemblyTypeName: GrabbableObjectBehaviour, Assembly-CSharp
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1970,6 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrabbed: 0
   modelParent: {fileID: 2087048364}
+  models: []
 --- !u!4 &1147290382
 Transform:
   m_ObjectHideFlags: 0
@@ -1986,6 +1991,27 @@ Transform:
   - {fileID: 2087048365}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1147290383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147290376}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.31261244, y: 0.14763838, z: 0.44187862}
+  m_Center: {x: 0.011687383, y: 0.10791966, z: 0.075413436}
 --- !u!1 &1148471416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +2057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43283684cd691b4f84e23ea56772605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHeadgear: {fileID: 0}
+  currentHeadgear: {fileID: 0}
+  revealedModels:
+  - {fileID: 954762391}
 --- !u!135 &1148471419
 SphereCollider:
   m_ObjectHideFlags: 0
