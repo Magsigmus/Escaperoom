@@ -24,7 +24,7 @@ public class NumPadManeger : MonoBehaviour
         }
         else if (i == "E")
         {
-
+            
         }
         else if (code.Count < 4)
         {
