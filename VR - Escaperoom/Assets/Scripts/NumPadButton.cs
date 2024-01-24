@@ -7,15 +7,12 @@ public class NumPadButton : MonoBehaviour
     public string me;
     public NumPadManeger Maneger;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Finger")
+        if (other.gameObject.tag == "Finger")
         {
+            Debug.Log("Triggered");
             Maneger.ButtonInput(me);
         }
     }
-
-
-
-
 }

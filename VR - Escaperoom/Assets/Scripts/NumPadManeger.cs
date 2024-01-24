@@ -22,17 +22,15 @@ public class NumPadManeger : MonoBehaviour
             code = new List<string>();
             codeDesplay.text = "";
         }
-        if (i == "E")
+        else if (i == "E")
         {
 
         }
-        else if (code.Count > 4)
+        else if (code.Count < 4)
         {
             code.Add(i);
             codeDesplay.text = string.Join(' ', code);
         }
-
-
     }
 
 

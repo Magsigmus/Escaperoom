@@ -4,22 +4,9 @@ using UnityEngine;
 
 public class TestPrinter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log("Triggered");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Activate()
-    {
-        Debug.Log("Stuff Happend");
-    }
-
 
 }
