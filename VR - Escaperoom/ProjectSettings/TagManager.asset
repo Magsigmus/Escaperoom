@@ -7,6 +7,7 @@ TagManager:
   - Meteor
   - Battery
   - Headgear
+  - Finger
   layers:
   - Default
   - TransparentFX
