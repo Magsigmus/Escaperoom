@@ -4,30 +4,57 @@ using UnityEngine;
 
 public class BatteryHolderScript : MonoBehaviour
 {
-    
-    Rigidbody batteryRig;
-    // Start is called before the first frame update
-    void Start()
-    {
-            
-    }
+    public string theTag;
+    Rigidbody objRig;
+    Collider obj;
+    GrabbableObjectBehaviour grabObjBehv;
+    bool snapUpdate = false;
+    bool objSnapped = false;
 
-    // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Battery" && !other.gameObject.GetComponent<GrabbableObjectBehaviour>().isGrabbed)
+        if (snapUpdate)
         {
-            batteryRig = other.gameObject.GetComponent<Rigidbody>();
-            other.transform.position = transform.position;
-            other.transform.rotation = transform.rotation;
+            if (objSnapped && grabObjBehv)
+            {
+                objSnapped = false;
+            }
+            if (grabObjBehv)
+            {
+                objRig.isKinematic = false;
+                obj.transform.position = transform.position;
+                obj.transform.rotation = transform.rotation;
+            }
         }
     }
-   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == theTag && !other.gameObject.GetComponent<GrabbableObjectBehaviour>().isGrabbed)
+        {
+            obj = other;
+            objRig = other.gameObject.GetComponent<Rigidbody>();
+            objRig.isKinematic = false;
+            other.transform.position = transform.position;
+            other.transform.rotation = transform.rotation;
+            snapUpdate = true;
+            objSnapped = true;
+        }
+        else if (other.tag == theTag)
+        {
+            obj = other;
+            grabObjBehv = other.gameObject.GetComponent<GrabbableObjectBehaviour>();
+            objRig = obj.gameObject.GetComponent<Rigidbody>();
+            snapUpdate = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == theTag)
+        {
+            snapUpdate = false;
+        }
+    }
 
 
 }

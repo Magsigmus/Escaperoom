@@ -9,6 +9,7 @@ public class GrabbableObjectBehaviour : MonoBehaviour
     public bool isGrabbed = false;
     public GameObject modelParent;
     public MeshRenderer[] models;
+    Rigidbody Rig;
 
     void Start()
     {
@@ -16,13 +17,11 @@ public class GrabbableObjectBehaviour : MonoBehaviour
         {
             models = modelParent.GetComponentsInChildren<MeshRenderer>();
         }
+        Rig = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void Grabbed()
     {
@@ -32,6 +31,7 @@ public class GrabbableObjectBehaviour : MonoBehaviour
     public void Released()
     {
         isGrabbed = false;
+        Rig.isKinematic = false;
     }
 
     public void Hide()
