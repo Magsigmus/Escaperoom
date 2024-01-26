@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class NumPadManeger : MonoBehaviour
@@ -9,11 +10,9 @@ public class NumPadManeger : MonoBehaviour
     public string trueCode;
     List<string> code = new List<string>();
     public TextMeshProUGUI codeDesplay;
+    public UnityEvent Correct;
 
-    void Start()
-    {
-        
-    }
+    
 
     public void ButtonInput(string i)
     {
@@ -24,7 +23,17 @@ public class NumPadManeger : MonoBehaviour
         }
         else if (i == "E")
         {
-            
+            if (trueCode == string.Join("", code))
+            {
+                codeDesplay.color = new Color (0, 255, 19, 255);
+                Correct.Invoke();
+            }
+            else
+            {
+                code = new List<string>();
+                codeDesplay.text = "";
+            }
+
         }
         else if (code.Count < 4)
         {
