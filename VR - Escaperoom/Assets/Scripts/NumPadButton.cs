@@ -11,7 +11,6 @@ public class NumPadButton : MonoBehaviour
     {
         if (other.gameObject.tag == "Finger")
         {
-            Debug.Log("Triggered");
             Maneger.ButtonInput(me);
         }
     }
