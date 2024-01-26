@@ -12,10 +12,11 @@ public class NumPadManeger : MonoBehaviour
     public TextMeshProUGUI codeDesplay;
     public UnityEvent Correct;
     public bool correctCode = false;
+    public bool powered = false;
     
     public void ButtonInput(string i)
     {
-        if(correctCode) { return; }
+        if(correctCode || !powered) { return; }
 
         if (i == "C")
         {
@@ -44,7 +45,15 @@ public class NumPadManeger : MonoBehaviour
         }
     }
 
-
+    void Power()
+    {
+        powered = true;
+    }
     
-    
+    void UnPower()
+    {
+        powered = false;
+        code = new List<string>();
+        codeDesplay.text = "";
+    }
 }
