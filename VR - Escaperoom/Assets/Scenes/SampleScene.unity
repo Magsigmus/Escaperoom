@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 954762390}
   m_Layer: 0
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: HiddenText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c1ba323186bb4c842094d356ee6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theTag: Battery
 --- !u!114 &2029138790 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 914262722848881783, guid: 878275aebc234eb4b8b8c6657cfb43aa,
