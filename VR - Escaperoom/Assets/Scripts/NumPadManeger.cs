@@ -11,11 +11,12 @@ public class NumPadManeger : MonoBehaviour
     List<string> code = new List<string>();
     public TextMeshProUGUI codeDesplay;
     public UnityEvent Correct;
-
+    public bool correctCode = false;
     
-
     public void ButtonInput(string i)
     {
+        if(correctCode) { return; }
+
         if (i == "C")
         {
             code = new List<string>();
@@ -26,8 +27,8 @@ public class NumPadManeger : MonoBehaviour
             if (trueCode == string.Join("", code))
             {
                 codeDesplay.color = new Color (0, 255, 0, 255);
+                correctCode = true;
                 Correct.Invoke();
-                this.enabled = false;
             }
             else
             {
