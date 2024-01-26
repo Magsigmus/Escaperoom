@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BatteryHolderScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BatteryHolderScript : MonoBehaviour
     GrabbableObjectBehaviour grabObjBehv;
     bool snapUpdate = false;
     bool objSnapped = false;
+    public UnityEvent powered;
+    public UnityEvent unPowered;
 
     void Update()
     {
@@ -18,12 +21,14 @@ public class BatteryHolderScript : MonoBehaviour
             if (objSnapped && grabObjBehv)
             {
                 objSnapped = false;
+                unPowered.Invoke();
             }
             if (grabObjBehv)
             {
                 objRig.isKinematic = false;
                 obj.transform.position = transform.position;
                 obj.transform.rotation = transform.rotation;
+                powered.Invoke();
             }
         }
     }
@@ -39,6 +44,7 @@ public class BatteryHolderScript : MonoBehaviour
             other.transform.rotation = transform.rotation;
             snapUpdate = true;
             objSnapped = true;
+            powered.Invoke();
         }
         else if (other.tag == theTag)
         {
