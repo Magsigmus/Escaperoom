@@ -25,8 +25,9 @@ public class NumPadManeger : MonoBehaviour
         {
             if (trueCode == string.Join("", code))
             {
-                codeDesplay.color = new Color (0, 255, 19, 255);
+                codeDesplay.color = new Color (0, 255, 0, 255);
                 Correct.Invoke();
+                this.enabled = false;
             }
             else
             {
