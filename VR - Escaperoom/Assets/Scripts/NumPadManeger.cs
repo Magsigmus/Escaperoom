@@ -45,12 +45,12 @@ public class NumPadManeger : MonoBehaviour
         }
     }
 
-    void Power()
+    public void Power()
     {
         powered = true;
     }
-    
-    void UnPower()
+
+    public void Unpower()
     {
         powered = false;
         code = new List<string>();
