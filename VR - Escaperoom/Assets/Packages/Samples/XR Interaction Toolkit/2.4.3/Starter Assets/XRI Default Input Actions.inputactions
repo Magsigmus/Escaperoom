@@ -2197,6 +2197,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Telekenises",
+            "id": "cd39379e-413d-4140-a29d-4fba9de2747a",
+            "actions": [
+                {
+                    "name": "triggerPressedLeft",
+                    "type": "Button",
+                    "id": "2cc735cd-f821-44b0-91c8-f8144dd6706e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerPressedRight",
+                    "type": "Button",
+                    "id": "6bc5f703-187d-4d9d-bd74-5a81be19c6a7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5fd9de85-7fe5-4f38-817b-9ed5f77f0353",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "triggerPressedLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be95677a-57b4-4f9d-9dd5-5b19a3b08cf9",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerPressedRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
