@@ -2282,6 +2282,17 @@
                     "action": "Reset-Button",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1dd7eab6-c02b-4f03-a3c4-2046e905bc75",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset-Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
