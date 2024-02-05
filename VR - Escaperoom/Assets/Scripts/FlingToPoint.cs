@@ -25,13 +25,14 @@ public class FlingToPoint : MonoBehaviour
     {
         if (!grabing && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
         {
-            var selected = hit.transform;
-            objToBeFling = selected.gameObject;
+            Debug.DrawRay(transform.position, transform.forward);
+
+            objToBeFling = hit.transform.gameObject;
             rb = objToBeFling.GetComponent<Rigidbody>();
             if (objToBeFling.GetComponent<XRGrabInteractable>() != null && rb != null && trigger.action.triggered)
             {
                 rb.velocity = new Vector3(ForceToThis("x", objToBeFling), 1f, ForceToThis("z", objToBeFling));
-                Debug.Log(objToBeFling.transform.position.x + this.transform.position.z);
+                Debug.Log($"x: {objToBeFling.transform.position.x}, z: {this.transform.position.z}");
             }
         }
     }
@@ -41,11 +42,11 @@ public class FlingToPoint : MonoBehaviour
     {
         if (axis == "x")
         {
-            return time / this.transform.position.x - objToBeFling.transform.position.x;
+            return (this.transform.position.x - objToBeFling.transform.position.x) / time;
         }
         else if (axis == "z")
         {
-            return time / this.transform.position.z - objToBeFling.transform.position.z;
+            return (this.transform.position.z - objToBeFling.transform.position.z) / time;
         }
         else if (axis == "y") // nont use yet need to think of gravaty
         {
