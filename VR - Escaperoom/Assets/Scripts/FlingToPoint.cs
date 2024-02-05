@@ -31,6 +31,7 @@ public class FlingToPoint : MonoBehaviour
             if (objToBeFling.GetComponent<XRGrabInteractable>() != null && rb != null && trigger.action.triggered)
             {
                 rb.velocity = new Vector3(ForceToThis("x", objToBeFling), 1f, ForceToThis("z", objToBeFling));
+                Debug.Log(objToBeFling.transform.position.x + this.transform.position.z);
             }
         }
     }
@@ -44,7 +45,7 @@ public class FlingToPoint : MonoBehaviour
         }
         else if (axis == "z")
         {
-            return time / this.transform.position.x - objToBeFling.transform.position.x;
+            return time / this.transform.position.z - objToBeFling.transform.position.z;
         }
         else if (axis == "y") // nont use yet need to think of gravaty
         {
