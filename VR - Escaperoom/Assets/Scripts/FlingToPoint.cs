@@ -10,6 +10,7 @@ public class FlingToPoint : MonoBehaviour
     public bool grabing = false;
     public InputActionReference trigger;
     public float gravityAdder = 5f;
+    public GameObject glowObject;
     GameObject objToBeFling;
     Rigidbody rb;
 
