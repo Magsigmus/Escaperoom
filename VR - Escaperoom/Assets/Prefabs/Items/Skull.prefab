@@ -487,6 +487,16 @@ PrefabInstance:
       propertyPath: hideOnEquip
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3480561486019513472, guid: e67d9fa4befb4ca469f6186aac91c071,
+        type: 3}
+      propertyPath: revealModels
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480561486019513472, guid: e67d9fa4befb4ca469f6186aac91c071,
+        type: 3}
+      propertyPath: revealedModels.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7463419357344741229, guid: e67d9fa4befb4ca469f6186aac91c071,
         type: 3}
       propertyPath: m_LocalPosition.x

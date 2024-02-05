@@ -10,7 +10,7 @@ public class GameManagerBehaviour : MonoBehaviour
 {
     public UnityEngine.InputSystem.InputActionReference restartInput;
     private bool startedRestarting = false;
-    private float timeSinceButtonDown = 0;
+    public float timeSinceButtonDown = 0;
     public float timeToTriggerRestart = 1; 
 
     private void Update()
@@ -20,6 +20,7 @@ public class GameManagerBehaviour : MonoBehaviour
 
         if (startedRestarting)
         {
+            Debug.Log("Timer incremeted");
             timeSinceButtonDown += Time.deltaTime;
             if (timeSinceButtonDown >= timeToTriggerRestart) 
             {
@@ -33,9 +34,11 @@ public class GameManagerBehaviour : MonoBehaviour
 
     private void StartedRestart(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+
+        if(!startedRestarting){ Debug.Log("Restarted Timer"); timeSinceButtonDown = 0; }
         Debug.Log("Button Down!");
         startedRestarting = true;
-        timeSinceButtonDown = 0;
+        
     }
 
     private void CanceledRestart(UnityEngine.InputSystem.InputAction.CallbackContext context)

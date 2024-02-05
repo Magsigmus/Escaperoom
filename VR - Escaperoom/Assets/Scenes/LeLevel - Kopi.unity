@@ -1087,6 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartInput: {fileID: 2808698486551456051, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  timeSinceButtonDown: 0
   timeToTriggerRestart: 1
 --- !u!4 &256277478
 Transform:
@@ -1464,6 +1465,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715439702427151155, guid: 878275aebc234eb4b8b8c6657cfb43aa,
+        type: 3}
+      propertyPath: gravityAdder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715439702427151155, guid: 878275aebc234eb4b8b8c6657cfb43aa,
+        type: 3}
+      propertyPath: forceMultiplyer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864752840839112153, guid: 878275aebc234eb4b8b8c6657cfb43aa,
+        type: 3}
+      propertyPath: gravityAdder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864752840839112153, guid: 878275aebc234eb4b8b8c6657cfb43aa,
+        type: 3}
+      propertyPath: forceMultiplyer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8591592436090052006, guid: 878275aebc234eb4b8b8c6657cfb43aa,
         type: 3}
