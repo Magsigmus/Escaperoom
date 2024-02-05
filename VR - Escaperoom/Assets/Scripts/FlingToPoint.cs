@@ -47,7 +47,7 @@ public class FlingToPoint : MonoBehaviour
         {
             return (this.transform.position.z - objToBeFling.transform.position.z) * forceMultiplyer;
         }
-        else if (axis == "y") // nont use yet need to think of gravaty
+        else if (axis == "y")
         {
             return   gravityAdder + (this.transform.position.y - objToBeFling.transform.position.y) * forceMultiplyer;
         }
