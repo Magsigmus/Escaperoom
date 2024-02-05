@@ -2245,6 +2245,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Reset",
+            "id": "a9d599d5-b905-4ae0-b9ef-c5eccc2452bb",
+            "actions": [
+                {
+                    "name": "Reset-Button",
+                    "type": "Button",
+                    "id": "00c40251-54b1-4867-ae11-475d8e672b04",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "41dfbd91-3e74-4b82-bddd-33207271882f",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset-Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7547c9f1-0d70-4a70-a152-cbd838040148",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset-Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

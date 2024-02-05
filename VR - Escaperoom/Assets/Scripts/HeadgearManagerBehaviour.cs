@@ -6,14 +6,16 @@ using System.Linq;
 public class HeadgearManagerBehaviour : MonoBehaviour
 {
     public GameObject currentHeadgear;
-    public MeshRenderer[] revealedModels;
+    public List<MeshRenderer> revealedModels;
     public bool hideOnEquip = true;
+    public bool revealModels = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!revealModels) { return; }
         List<MeshRenderer> newRevealedModels = GameObject.FindGameObjectsWithTag("HiddenText").Select(e => e.GetComponent<MeshRenderer>()).ToList();
-        foreach (MeshRenderer mr in revealedModels) { newRevealedModels.Add(mr); }
+        foreach (MeshRenderer mr in newRevealedModels) { revealedModels.Add(mr); }
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class HeadgearManagerBehaviour : MonoBehaviour
             { 
                 currentHeadgear.GetComponent<GrabbableObjectBehaviour>().Show();
                 currentHeadgear = null;
+                if (revealedModels.Count == 0) { return; }
                 foreach (MeshRenderer mr in revealedModels) { mr.enabled = false; }
             }
         }
@@ -43,6 +46,7 @@ public class HeadgearManagerBehaviour : MonoBehaviour
             currentHeadgear = col.gameObject;
             currentHeadgear.GetComponent<Rigidbody>().isKinematic = true;
             if (hideOnEquip) { grab.Hide(); }
+            if(revealedModels.Count == 0) { return; }
             foreach(MeshRenderer mr in revealedModels) { mr.enabled = true; }
         }
     }
