@@ -2264,7 +2264,18 @@
                 {
                     "name": "",
                     "id": "41dfbd91-3e74-4b82-bddd-33207271882f",
-                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "path": "<XRController>{LeftHand}/menu",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset-Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1f8c0c8-e60a-4f17-aa4b-8895be974bd5",
+                    "path": "<XRController>{RightHand}/menu",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -2275,6 +2286,17 @@
                 {
                     "name": "",
                     "id": "7547c9f1-0d70-4a70-a152-cbd838040148",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset-Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2db0e07c-a94b-4bc3-8d21-3ee2c8458401",
                     "path": "<XRController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
@@ -2285,8 +2307,19 @@
                 },
                 {
                     "name": "",
-                    "id": "1dd7eab6-c02b-4f03-a3c4-2046e905bc75",
-                    "path": "<ViveController>/triggerPressed",
+                    "id": "13776fff-7b66-46eb-a3b3-ab3a1d38417f",
+                    "path": "<XRController>{LeftHand}/primary",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset-Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "988cf789-c8c0-4918-9ea8-251135aa39c8",
+                    "path": "<XRController>{RightHand}/primary",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

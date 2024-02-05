@@ -15,34 +15,23 @@ public class GameManagerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        restartInput.action.started += StartedRestart;
-        restartInput.action.canceled += CanceledRestart;
+        bool triggered = restartInput.action.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
 
-        if (startedRestarting)
+        if (triggered)
         {
+            if(triggered != startedRestarting) { timeSinceButtonDown = 0; }
+
             Debug.Log("Timer incremeted");
             timeSinceButtonDown += Time.deltaTime;
             if (timeSinceButtonDown >= timeToTriggerRestart) 
             {
+                Debug.Log("Restarted Scene");
+
                 Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scene.name);
             }
         }
 
-        startedRestarting = restartInput.action.triggered;
-    }
-
-    private void StartedRestart(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-
-        if(!startedRestarting){ Debug.Log("Restarted Timer"); timeSinceButtonDown = 0; }
-        Debug.Log("Button Down!");
-        startedRestarting = true;
-        
-    }
-
-    private void CanceledRestart(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        startedRestarting = false;
+        startedRestarting = triggered;
     }
 }
