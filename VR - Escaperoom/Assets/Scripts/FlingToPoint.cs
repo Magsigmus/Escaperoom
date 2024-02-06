@@ -10,7 +10,6 @@ public class FlingToPoint : MonoBehaviour
     public float gravityAdder = 3f;
     public bool grabing = false;
     public InputActionReference trigger;
-    public GameObject glowObject;
     public GameObject lightObj;
     public Color hoverColor;
     public Color celectedColor;
@@ -67,11 +66,13 @@ public class FlingToPoint : MonoBehaviour
             if (signCheck())
             {
                 light.intensity = startIntens + IntenetyCordCalc("x") + IntenetyCordCalc("y") + IntenetyCordCalc("z");
-                if (trigger.action.phase == InputActionPhase.Waiting && speedCheck())
+                if (speedCheck())
                 {
-                    flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling));
+                    light.color = readyColor;
+                    if (trigger.action.phase == InputActionPhase.Waiting) { flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling)); }
                 }
             }
+            else { light.intensity = startIntens; }
             if (trigger.action.phase == InputActionPhase.Waiting)
             {
                 celect = false;
