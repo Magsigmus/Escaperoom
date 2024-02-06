@@ -2325,7 +2325,7 @@ MonoBehaviour:
   gravityAdder: 3
   grabing: 0
   trigger: {fileID: 1787115779285788676, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  lightObj: {fileID: 0}
+  lightObj: {fileID: 8827220301652339786}
   hoverColor: {r: 0, g: 0.6745098, b: 1, a: 0}
   celectedColor: {r: 1, g: 0.4627451, b: 0.08235294, a: 0}
   readyColor: {r: 0.105882354, g: 1, b: 0, a: 0}
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   grabing: 0
   trigger: {fileID: -1657804469033072114, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  lightObj: {fileID: 0}
+  lightObj: {fileID: 578390381318577566}
   hoverColor: {r: 0, g: 0.67542934, b: 1, a: 0}
   celectedColor: {r: 1, g: 0.46249425, b: 0.08176094, a: 0}
   readyColor: {r: 0.10746229, g: 1, b: 0, a: 0}

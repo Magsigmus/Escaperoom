@@ -4072,6 +4072,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flask 4
       objectReference: {fileID: 0}
+    - target: {fileID: 822496196345761804, guid: 8d1df9dc24e7aa44ab61a267bccdbab9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2123931188553680762, guid: 8d1df9dc24e7aa44ab61a267bccdbab9,
         type: 3}
       propertyPath: m_LocalPosition.x
