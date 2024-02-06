@@ -36,7 +36,7 @@ public class FlingToPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!grabing && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit) && !celect)
+        if (!grabing && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit) /* && !celect */)
         {
             Debug.DrawRay(transform.position, transform.forward);
 
@@ -46,19 +46,19 @@ public class FlingToPoint : MonoBehaviour
             if (objToBeFling.GetComponent<XRGrabInteractable>() != null && flingRb != null)
             {
                 light.enabled = true;
-                light.color = hoverColor;
-                light.intensity = startIntens;
+//                light.color = hoverColor;
+//                light.intensity = startIntens;
                 lightObj.transform.position = objToBeFling.transform.position;
                 if (trigger.action.triggered)
                 {
-                    if (grabing) { light.enabled = false; return; }
-                    celect = true;
-                    neededSpeed = (objToBeFling.transform.position - this.transform.position) / 1000 * neededSpeedMultyplier;
-                    lastCord = transform.position;
+//                    celect = true;
+//                    neededSpeed = (objToBeFling.transform.position - this.transform.position) / 1000 * neededSpeedMultyplier;
+//                    lastCord = transform.position;
+                    flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling));
                 }
             }
         }
-        else if (celect)
+/*        else if (celect)
         {
             lightObj.transform.position = objToBeFling.transform.position;
             curentSpeed = transform.position - lastCord;
@@ -78,7 +78,7 @@ public class FlingToPoint : MonoBehaviour
                 celect = false;
             }
             lastCord = transform.position;
-        }
+        }*/
         else
         {
             light.enabled = false;
