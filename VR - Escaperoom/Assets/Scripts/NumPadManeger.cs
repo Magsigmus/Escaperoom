@@ -13,6 +13,8 @@ public class NumPadManeger : MonoBehaviour
     public UnityEvent Correct;
     public bool correctCode = false;
     public bool powered = false;
+    public MeshRenderer buttonText;
+    public Material whiteMaterial, grayMaterial;
     
     public void ButtonInput(string i)
     {
@@ -48,6 +50,8 @@ public class NumPadManeger : MonoBehaviour
     public void Power()
     {
         powered = true;
+        codeDesplay.text = "";
+        buttonText.material = whiteMaterial;
     }
 
     public void Unpower()
@@ -55,5 +59,6 @@ public class NumPadManeger : MonoBehaviour
         powered = false;
         code = new List<string>();
         codeDesplay.text = "";
+        buttonText.material = grayMaterial;
     }
 }
