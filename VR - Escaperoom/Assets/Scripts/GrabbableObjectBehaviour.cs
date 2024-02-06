@@ -9,6 +9,7 @@ public class GrabbableObjectBehaviour : MonoBehaviour
     public bool isGrabbed = false;
     public GameObject modelParent;
     public MeshRenderer[] models;
+    public Transform newParent;
     Rigidbody Rig;
 
     void Start()
@@ -30,6 +31,7 @@ public class GrabbableObjectBehaviour : MonoBehaviour
 
     public void Released()
     {
+        transform.parent = newParent;
         isGrabbed = false;
         Rig.isKinematic = false;
     }
