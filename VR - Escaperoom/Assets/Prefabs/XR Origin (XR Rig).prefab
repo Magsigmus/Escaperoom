@@ -2330,8 +2330,8 @@ MonoBehaviour:
   celectedColor: {r: 1, g: 0.4627451, b: 0.08235294, a: 0}
   readyColor: {r: 0.105882354, g: 1, b: 0, a: 0}
   startIntens: 1
-  endIntens: 5
-  neededSpeedMultyplier: 1
+  endIntens: 2
+  neededSpeedMultyplier: 25
 --- !u!4 &2764885566955954891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6189354538098044173, guid: 2fd3e07afe5b461490fb8e314976b1b0,
@@ -2529,8 +2529,8 @@ MonoBehaviour:
   celectedColor: {r: 1, g: 0.46249425, b: 0.08176094, a: 0}
   readyColor: {r: 0.10746229, g: 1, b: 0, a: 0}
   startIntens: 1
-  endIntens: 5
-  neededSpeedMultyplier: 1
+  endIntens: 2
+  neededSpeedMultyplier: 25
 --- !u!4 &3376967834551857375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6189354538098044173, guid: 2fd3e07afe5b461490fb8e314976b1b0,

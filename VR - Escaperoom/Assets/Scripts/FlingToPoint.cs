@@ -119,9 +119,9 @@ public class FlingToPoint : MonoBehaviour
     }
     bool signCheck()
     {
-            return Mathf.Sign(transform.position.x - lastCord.x) == Mathf.Sign(neededSpeed.x) &&
-            Mathf.Sign(transform.position.y - lastCord.y) == Mathf.Sign(neededSpeed.y) &&
-            Mathf.Sign(transform.position.z - lastCord.z) == Mathf.Sign(neededSpeed.z);
+            return Mathf.Sign(lastCord.x - transform.position.x) == Mathf.Sign(neededSpeed.x) &&
+            Mathf.Sign(lastCord.y - transform.position.y) == Mathf.Sign(neededSpeed.y) &&
+            Mathf.Sign(lastCord.z - transform.position.z) == Mathf.Sign(neededSpeed.z);
     }
     bool speedCheck()
     {
