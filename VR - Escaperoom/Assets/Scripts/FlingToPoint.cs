@@ -56,6 +56,11 @@ public class FlingToPoint : MonoBehaviour
 //                    lastCord = transform.position;
                     flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling));
                 }
+                
+            }
+            else
+            {
+                light.enabled = false;
             }
         }
 /*        else if (celect)
