@@ -13,6 +13,7 @@ public class BatteryHolderScript : MonoBehaviour
     bool objSnapped = false;
     public UnityEvent powered;
     public UnityEvent unPowered;
+    public AudioSource source;
 
     void Update()
     {
@@ -24,11 +25,13 @@ public class BatteryHolderScript : MonoBehaviour
             objSnapped = false;
             unPowered.Invoke();
         }
-        else if (!grabObjBehv.isGrabbed)
+        else if (!grabObjBehv.isGrabbed && !objSnapped)
         {
             objRig.isKinematic = true;
             obj.transform.position = transform.position;
             obj.transform.rotation = transform.rotation;
+            objSnapped = true;
+            source.Play();
             powered.Invoke();
         }
     }
@@ -42,11 +45,11 @@ public class BatteryHolderScript : MonoBehaviour
         objRig = obj.gameObject.GetComponent<Rigidbody>();
         grabObjBehv = other.gameObject.GetComponent<GrabbableObjectBehaviour>();
 
-        if (!grabObjBehv.isGrabbed)
+/*        if (!grabObjBehv.isGrabbed)
         {
             objSnapped = true;
             powered.Invoke();
-        }
+        }*/
     }
     private void OnTriggerExit(Collider other)
     {
