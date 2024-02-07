@@ -123,6 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 6295577749516045342}
     - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
         type: 3}
+      propertyPath: noPower
+      value: 
+      objectReference: {fileID: 8300000, guid: 608f3dff02037984793fdd6f5ed17ae9, type: 3}
+    - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
+        type: 3}
       propertyPath: keyPress
       value: 
       objectReference: {fileID: 8300000, guid: f2dbbbdec162be34489640bf203e7b20, type: 3}
