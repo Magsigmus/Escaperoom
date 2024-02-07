@@ -8,7 +8,7 @@ public class NumPadManeger : MonoBehaviour
 {
    
     public string trueCode;
-    List<string> code = new List<string>();
+    public List<string> code = new List<string>();
     public TextMeshProUGUI codeDesplay;
     public UnityEvent Correct;
     public bool correctCode = false;
@@ -26,6 +26,7 @@ public class NumPadManeger : MonoBehaviour
 
         if (i == "C")
         {
+            Debug.Log("Triggered");
             code = new List<string>();
             codeDesplay.text = "";
             audioS.clip = keyPress;
@@ -47,7 +48,7 @@ public class NumPadManeger : MonoBehaviour
             {
                 code = new List<string>();
                 codeDesplay.text = "";
-
+                Debug.Log("Triggered");
                 audioS.clip = wrongeAudio;
                 audioS.pitch = 1f;
                 audioS.Play();
@@ -67,7 +68,6 @@ public class NumPadManeger : MonoBehaviour
     public void Power()
     {
         powered = true;
-        codeDesplay.text = "";
         buttonText.material = whiteMaterial;
     }
 

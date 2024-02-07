@@ -17,6 +17,7 @@ public class FlingToPoint : MonoBehaviour
     public float startIntens = 1f;
     public float endIntens = 5f;
     public float neededSpeedMultyplier = 1f;
+    public Transform rayStartPoint, rayDirPoint;
     Light light;
     GameObject objToBeFling;
     Rigidbody flingRb;
@@ -36,9 +37,9 @@ public class FlingToPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!grabing && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit) /* && !celect */)
+        if (!grabing && Physics.Raycast(rayStartPoint.position, rayDirPoint.position - rayStartPoint.position, out RaycastHit hit) /* && !celect */)
         {
-            Debug.DrawRay(transform.position, transform.forward);
+            Debug.DrawRay(rayStartPoint.position, (rayDirPoint.position - rayStartPoint.position) * 100);
 
             objToBeFling = hit.transform.gameObject;
             flingRb = objToBeFling.GetComponent<Rigidbody>();
@@ -134,7 +135,6 @@ public class FlingToPoint : MonoBehaviour
         && Mathf.Abs(curentSpeed.x) > Mathf.Abs(neededSpeed.x)
         && Mathf.Abs(curentSpeed.x) > Mathf.Abs(neededSpeed.x);
     }
-
 
     public void grab() { grabing = true; }
     public void release() { grabing = false; }
