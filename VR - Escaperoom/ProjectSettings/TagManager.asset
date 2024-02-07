@@ -9,6 +9,7 @@ TagManager:
   - Headgear
   - Finger
   - HiddenText
+  - IgnoreReol
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Pressable
-  - 
+  - Camera
   - 
   - 
   - 

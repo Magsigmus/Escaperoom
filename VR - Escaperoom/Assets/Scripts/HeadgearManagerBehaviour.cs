@@ -6,13 +6,16 @@ using System.Linq;
 public class HeadgearManagerBehaviour : MonoBehaviour
 {
     public GameObject currentHeadgear;
-    public MeshRenderer[] revealedModels;
+    public List<MeshRenderer> revealedModels;
+    public bool hideOnEquip = true;
+    public bool revealModels = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!revealModels) { return; }
         List<MeshRenderer> newRevealedModels = GameObject.FindGameObjectsWithTag("HiddenText").Select(e => e.GetComponent<MeshRenderer>()).ToList();
-        foreach (MeshRenderer mr in revealedModels) { newRevealedModels.Add(mr); }
+        foreach (MeshRenderer mr in newRevealedModels) { revealedModels.Add(mr); }
     }
 
     // Update is called once per frame
@@ -26,8 +29,9 @@ public class HeadgearManagerBehaviour : MonoBehaviour
             if (currentHeadgear.GetComponent<GrabbableObjectBehaviour>().isGrabbed) 
             { 
                 currentHeadgear.GetComponent<GrabbableObjectBehaviour>().Show();
-                foreach (MeshRenderer mr in revealedModels) { mr.enabled = false; }
                 currentHeadgear = null;
+                if (revealedModels.Count == 0) { return; }
+                foreach (MeshRenderer mr in revealedModels) { mr.enabled = false; }
             }
         }
     }
@@ -40,7 +44,9 @@ public class HeadgearManagerBehaviour : MonoBehaviour
         if (col.tag == "Headgear" && !colIsGrabbed)
         {
             currentHeadgear = col.gameObject;
-            grab.Hide();
+            currentHeadgear.GetComponent<Rigidbody>().isKinematic = true;
+            if (hideOnEquip) { grab.Hide(); }
+            if(revealedModels.Count == 0) { return; }
             foreach(MeshRenderer mr in revealedModels) { mr.enabled = true; }
         }
     }
