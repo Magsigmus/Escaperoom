@@ -9,6 +9,7 @@ public class HeadgearManagerBehaviour : MonoBehaviour
     public List<MeshRenderer> revealedModels;
     public bool hideOnEquip = true;
     public bool revealModels = false;
+    public AudioSource equipSound;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class HeadgearManagerBehaviour : MonoBehaviour
         {
             currentHeadgear = col.gameObject;
             currentHeadgear.GetComponent<Rigidbody>().isKinematic = true;
-            if (hideOnEquip) { grab.Hide(); }
+            if (hideOnEquip) { grab.Hide(); equipSound.Play(); }
             if(revealedModels.Count == 0) { return; }
             foreach(MeshRenderer mr in revealedModels) { mr.enabled = true; }
         }

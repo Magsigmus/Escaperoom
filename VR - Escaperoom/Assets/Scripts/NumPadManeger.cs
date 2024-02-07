@@ -19,10 +19,17 @@ public class NumPadManeger : MonoBehaviour
     public AudioClip keyPress;
     public AudioClip correctAudio;
     public AudioClip wrongeAudio;
+    public AudioClip noPower;
 
     public void ButtonInput(string i)
     {
-        if(correctCode || !powered) { return; }
+        if(correctCode || !powered)
+        {
+            audioS.clip = noPower;
+            audioS.pitch = 1f;
+            audioS.Play();
+            return;
+        }
 
         if (i == "C")
         {
