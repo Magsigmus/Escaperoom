@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SecretBookBehaviour : MonoBehaviour
 {
     public GameObject reol;
+    public AudioSource click;
     bool moved = false;
 
     private void Update()
@@ -15,6 +16,7 @@ public class SecretBookBehaviour : MonoBehaviour
         {
             reol.GetComponent<Animator>().SetTrigger("StartSlide");
             reol.GetComponent<AudioSource>().Play();
+            click.Play();
             moved = true;
         }
     }
