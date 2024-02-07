@@ -15,7 +15,11 @@ public class NumPadManeger : MonoBehaviour
     public bool powered = false;
     public MeshRenderer buttonText;
     public Material whiteMaterial, grayMaterial;
-    
+    public AudioSource audioS;
+    public AudioClip keyPress;
+    public AudioClip correctAudio;
+    public AudioClip wrongeAudio;
+
     public void ButtonInput(string i)
     {
         if(correctCode || !powered) { return; }
@@ -24,6 +28,9 @@ public class NumPadManeger : MonoBehaviour
         {
             code = new List<string>();
             codeDesplay.text = "";
+            audioS.clip = keyPress;
+            audioS.pitch = 0.1f;
+            audioS.Play();
         }
         else if (i == "E")
         {
@@ -32,11 +39,18 @@ public class NumPadManeger : MonoBehaviour
                 codeDesplay.color = new Color (0, 255, 0, 255);
                 correctCode = true;
                 Correct.Invoke();
+                audioS.clip = correctAudio;
+                audioS.pitch = 1f;
+                audioS.Play();
             }
             else
             {
                 code = new List<string>();
                 codeDesplay.text = "";
+
+                audioS.clip = wrongeAudio;
+                audioS.pitch = 1f;
+                audioS.Play();
             }
 
         }
@@ -44,6 +58,9 @@ public class NumPadManeger : MonoBehaviour
         {
             code.Add(i);
             codeDesplay.text = string.Join(' ', code);
+            audioS.clip = keyPress;
+            audioS.pitch = 1 + float.Parse(i);
+            audioS.Play();
         }
     }
 

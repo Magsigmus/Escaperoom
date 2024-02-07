@@ -118,6 +118,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
         type: 3}
+      propertyPath: audioS
+      value: 
+      objectReference: {fileID: 6295577749516045342}
+    - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
+        type: 3}
+      propertyPath: keyPress
+      value: 
+      objectReference: {fileID: 8300000, guid: f2dbbbdec162be34489640bf203e7b20, type: 3}
+    - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
+        type: 3}
       propertyPath: trueCode
       value: 5161
       objectReference: {fileID: 0}
@@ -126,6 +136,16 @@ PrefabInstance:
       propertyPath: buttonText
       value: 
       objectReference: {fileID: 8506615407307516775}
+    - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
+        type: 3}
+      propertyPath: wrongeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ad87fac0f0443a4a90c99bf7ed7a46d, type: 3}
+    - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
+        type: 3}
+      propertyPath: correctAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: d71bdbff4dbb7ef44a95aa0cd6a61216, type: 3}
     - target: {fileID: 1072914268855637133, guid: 37fb16c8d57c885429a7dae653afd3a9,
         type: 3}
       propertyPath: grayMaterial
