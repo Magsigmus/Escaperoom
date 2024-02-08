@@ -18,19 +18,21 @@ public class FlingToPoint : MonoBehaviour
     public float endIntens = 5f;
     public float neededSpeedMultyplier = 1f;
     public Transform rayStartPoint, rayDirPoint;
+    public Material selectionMaterial;
+    List<Material[]> hiddenMaterials = new List<Material[]>();
+    MeshRenderer[] selectedMeshes;
     Light light;
     GameObject objToBeFling;
     Rigidbody flingRb;
-    Rigidbody rb;
-    bool celect = false;
+    bool lastSelected = false;
     Vector3 neededSpeed;
     Vector3 lastCord;
     Vector3 curentSpeed;
+    GrabbableObjectBehaviour grabBe = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
         light = lightObj.GetComponent<Light>();
     }
 
@@ -41,54 +43,77 @@ public class FlingToPoint : MonoBehaviour
         {
             Debug.DrawRay(rayStartPoint.position, (rayDirPoint.position - rayStartPoint.position) * 100);
 
+            bool newObj = objToBeFling != hit.transform.gameObject;
+
             objToBeFling = hit.transform.gameObject;
             flingRb = objToBeFling.GetComponent<Rigidbody>();
 
             if (objToBeFling.GetComponent<XRGrabInteractable>() != null && flingRb != null)
             {
+                grabBe = objToBeFling.GetComponent<GrabbableObjectBehaviour>();
+
+                if (!newObj && lastSelected != grabBe.selected)
+                {
+                    ReturnToNormalMaterials();
+                    MakeWhite(objToBeFling);
+                }
+
+                if (newObj && !grabBe.selected)
+                {
+                    ReturnToNormalMaterials();
+                    MakeWhite(objToBeFling);
+                }
+
                 light.enabled = true;
-//                light.color = hoverColor;
-//                light.intensity = startIntens;
                 lightObj.transform.position = objToBeFling.transform.position;
                 if (trigger.action.triggered)
                 {
-//                    celect = true;
-//                    neededSpeed = (objToBeFling.transform.position - this.transform.position) / 1000 * neededSpeedMultyplier;
-//                    lastCord = transform.position;
                     flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling));
                 }
-                
+
+                lastSelected = grabBe.selected;
             }
             else
             {
+                ReturnToNormalMaterials();
                 light.enabled = false;
             }
         }
-/*        else if (celect)
-        {
-            lightObj.transform.position = objToBeFling.transform.position;
-            curentSpeed = transform.position - lastCord;
-
-            if (signCheck())
-            {
-                light.intensity = startIntens + IntenetyCordCalc("x") + IntenetyCordCalc("y") + IntenetyCordCalc("z");
-                if (speedCheck())
-                {
-                    light.color = readyColor;
-                    if (trigger.action.phase == InputActionPhase.Waiting) { flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling)); }
-                }
-            }
-            else { light.intensity = startIntens; }
-            if (trigger.action.phase == InputActionPhase.Waiting)
-            {
-                celect = false;
-            }
-            lastCord = transform.position;
-        }*/
         else
         {
+            ReturnToNormalMaterials();
             light.enabled = false;
         }
+    }
+
+    void MakeWhite(GameObject obj)
+    {
+        obj.GetComponent<GrabbableObjectBehaviour>().selected = true;
+        selectedMeshes = obj.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer mr in selectedMeshes)
+        {
+            if(mr.materials[0] == selectionMaterial) { continue; }
+            hiddenMaterials.Add(mr.materials);
+            Material[] whiteOut = new Material[mr.materials.Length];
+            for(int i = 0; i < whiteOut.Length; i++) { whiteOut[i] = selectionMaterial; }
+            mr.materials = whiteOut;
+        }
+    }
+
+    void ReturnToNormalMaterials()
+    {
+        if(grabBe != null)
+        {
+            Debug.Log("Triggered!");
+            grabBe.selected = false;
+        }
+
+        
+        for (int i = 0; i < hiddenMaterials.Count; i++)
+        {
+            selectedMeshes[i].materials = hiddenMaterials[i];
+        }
+        hiddenMaterials.Clear();
     }
 
 
@@ -122,18 +147,6 @@ public class FlingToPoint : MonoBehaviour
         {
             return (Mathf.Abs(transform.position.z) - Mathf.Abs(lastCord.z) / neededSpeed.z * (endIntens - startIntens));
         }
-    }
-    bool signCheck()
-    {
-            return Mathf.Sign(lastCord.x - transform.position.x) == Mathf.Sign(neededSpeed.x) &&
-            Mathf.Sign(lastCord.y - transform.position.y) == Mathf.Sign(neededSpeed.y) &&
-            Mathf.Sign(lastCord.z - transform.position.z) == Mathf.Sign(neededSpeed.z);
-    }
-    bool speedCheck()
-    {
-        return Mathf.Abs(curentSpeed.x) > Mathf.Abs(neededSpeed.x)
-        && Mathf.Abs(curentSpeed.x) > Mathf.Abs(neededSpeed.x)
-        && Mathf.Abs(curentSpeed.x) > Mathf.Abs(neededSpeed.x);
     }
 
     public void grab() { grabing = true; }

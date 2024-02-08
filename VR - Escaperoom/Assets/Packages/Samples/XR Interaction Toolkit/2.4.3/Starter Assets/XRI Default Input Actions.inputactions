@@ -929,19 +929,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "95fa1419-ca7b-4c8a-8d15-7d46e58d82e3",
-                    "path": "<XRController>{LeftHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=-1,sweepBehavior=3)",
-                    "processors": "",
-                    "groups": "Noncontinuous Move",
-                    "action": "Teleport Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8da6ed3a-f621-49fe-8c76-1f6b7d7754d6",
-                    "path": "<XRController>{LeftHand}/Primary2DAxis",
+                    "path": "Primary2DAxis>{LeftHand}/Primary2DAxis",
                     "interactions": "Sector(directions=1)",
                     "processors": "",
                     "groups": "Noncontinuous Move",
@@ -1012,6 +1001,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95fa1419-ca7b-4c8a-8d15-7d46e58d82e3",
+                    "path": "Primary2DAxis>{LeftHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=-1,sweepBehavior=3)",
+                    "processors": "",
+                    "groups": "Noncontinuous Move",
+                    "action": "Teleport Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1668,7 +1668,7 @@
                 {
                     "name": "",
                     "id": "de466e6e-12bf-46a1-b0fd-ffbc343f3399",
-                    "path": "<XRController>{RightHand}/gripPressed",
+                    "path": "<XRController>{RightHand}/joystickClicked",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",

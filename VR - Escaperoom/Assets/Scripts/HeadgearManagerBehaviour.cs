@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class HeadgearManagerBehaviour : MonoBehaviour
 {
     public GameObject currentHeadgear;
-    public List<MeshRenderer> revealedModels;
+    public List<Renderer> revealedModels;
     public bool hideOnEquip = true;
     public bool revealModels = false;
     public AudioSource equipSound;
+    public Image equipOverlay;
 
     // Start is called before the first frame update
     void Start()
     {
         if (!revealModels) { return; }
-        List<MeshRenderer> newRevealedModels = GameObject.FindGameObjectsWithTag("HiddenText").Select(e => e.GetComponent<MeshRenderer>()).ToList();
-        foreach (MeshRenderer mr in newRevealedModels) { revealedModels.Add(mr); }
+        equipOverlay.enabled = false;
+        List<Renderer> newRevealedModels = GameObject.FindGameObjectsWithTag("HiddenText").Select(e => e.GetComponent<Renderer>()).ToList();
+        foreach (Renderer mr in newRevealedModels) { revealedModels.Add(mr); }
     }
 
     // Update is called once per frame
@@ -32,7 +35,8 @@ public class HeadgearManagerBehaviour : MonoBehaviour
                 currentHeadgear.GetComponent<GrabbableObjectBehaviour>().Show();
                 currentHeadgear = null;
                 if (revealedModels.Count == 0) { return; }
-                foreach (MeshRenderer mr in revealedModels) { mr.enabled = false; }
+                foreach (Renderer mr in revealedModels) { mr.enabled = false; }
+                if (revealModels) { equipOverlay.enabled = false; }
             }
         }
     }
@@ -48,7 +52,8 @@ public class HeadgearManagerBehaviour : MonoBehaviour
             currentHeadgear.GetComponent<Rigidbody>().isKinematic = true;
             if (hideOnEquip) { grab.Hide(); equipSound.Play(); }
             if(revealedModels.Count == 0) { return; }
-            foreach(MeshRenderer mr in revealedModels) { mr.enabled = true; }
+            foreach(Renderer mr in revealedModels) { mr.enabled = true; }
+            if (revealModels) { equipOverlay.enabled = true; }
         }
     }
 }

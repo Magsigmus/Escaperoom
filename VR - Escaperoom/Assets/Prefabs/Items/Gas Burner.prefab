@@ -145,7 +145,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &2727117392959746485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   isGrabbed: 0
   modelParent: {fileID: 0}
   models: []
+  newParent: {fileID: 0}
 --- !u!64 &5430923160535247120
 MeshCollider:
   m_ObjectHideFlags: 0
