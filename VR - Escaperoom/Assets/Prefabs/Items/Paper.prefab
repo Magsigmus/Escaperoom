@@ -251,6 +251,9 @@ MonoBehaviour:
   modelParent: {fileID: 0}
   models: []
   newParent: {fileID: 0}
+  rightControllerPointing: 0
+  leftControllerPointing: 0
+  whiteOut: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
 --- !u!65 &961069327166561368
 BoxCollider:
   m_ObjectHideFlags: 0

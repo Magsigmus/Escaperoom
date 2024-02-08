@@ -2762,6 +2762,7 @@ MonoBehaviour:
   rayStartPoint: {fileID: 2366257367110653878}
   rayDirPoint: {fileID: 2865589270060751019}
   selectionMaterial: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
+  handIndex: 2
 --- !u!4 &2764885566955954891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6189354538098044173, guid: 2fd3e07afe5b461490fb8e314976b1b0,
@@ -2967,6 +2968,7 @@ MonoBehaviour:
   rayStartPoint: {fileID: 6188772954963285868}
   rayDirPoint: {fileID: 2511499820104206855}
   selectionMaterial: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
+  handIndex: 1
 --- !u!4 &3376967834551857375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6189354538098044173, guid: 2fd3e07afe5b461490fb8e314976b1b0,
