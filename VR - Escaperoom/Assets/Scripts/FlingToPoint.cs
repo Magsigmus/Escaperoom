@@ -49,10 +49,12 @@ public class FlingToPoint : MonoBehaviour
 
             if (objToBeFling.GetComponent<XRGrabInteractable>() != null && flingRb != null)
             {
+                if (newObj && grabBe != null) { grabBe.UpdateSelected(handIndex, false); }
+
                 grabBe = objToBeFling.GetComponent<GrabbableObjectBehaviour>();
                 if(grabBe == null) { Debug.Log($"The object {objToBeFling.name} is able to be picked up, but is missing a GrabbableObjectBehaviour."); }
                 else { grabBe.UpdateSelected(handIndex, true); }
-                
+
                 light.enabled = true;
                 lightObj.transform.position = objToBeFling.transform.position;
                 if (trigger.action.triggered)
