@@ -19,8 +19,6 @@ public class FlingToPoint : MonoBehaviour
     public float neededSpeedMultyplier = 1f;
     public Transform rayStartPoint, rayDirPoint;
     public Material selectionMaterial;
-    List<Material[]> hiddenMaterials = new List<Material[]>();
-    MeshRenderer[] selectedMeshes;
     Light light;
     GameObject objToBeFling;
     Rigidbody flingRb;
@@ -29,6 +27,7 @@ public class FlingToPoint : MonoBehaviour
     Vector3 lastCord;
     Vector3 curentSpeed;
     GrabbableObjectBehaviour grabBe = null;
+    public int handIndex = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -51,71 +50,28 @@ public class FlingToPoint : MonoBehaviour
             if (objToBeFling.GetComponent<XRGrabInteractable>() != null && flingRb != null)
             {
                 grabBe = objToBeFling.GetComponent<GrabbableObjectBehaviour>();
-
-                if (!newObj && lastSelected != grabBe.selected)
-                {
-                    ReturnToNormalMaterials();
-                    MakeWhite(objToBeFling);
-                }
-
-                if (newObj && !grabBe.selected)
-                {
-                    ReturnToNormalMaterials();
-                    MakeWhite(objToBeFling);
-                }
-
+                if(grabBe == null) { Debug.Log($"The object {objToBeFling.name} is able to be picked up, but is missing a GrabbableObjectBehaviour."); }
+                else { grabBe.UpdateSelected(handIndex, true); }
+                
                 light.enabled = true;
                 lightObj.transform.position = objToBeFling.transform.position;
                 if (trigger.action.triggered)
                 {
                     flingRb.velocity = new Vector3(ForceToThis("x", objToBeFling), ForceToThis("y", objToBeFling), ForceToThis("z", objToBeFling));
                 }
-
-                lastSelected = grabBe.selected;
             }
             else
             {
-                ReturnToNormalMaterials();
+                if (grabBe != null) { grabBe.UpdateSelected(handIndex, false); }
                 light.enabled = false;
             }
         }
         else
         {
-            ReturnToNormalMaterials();
+            if(grabBe != null) { grabBe.UpdateSelected(handIndex, false); }
             light.enabled = false;
         }
     }
-
-    void MakeWhite(GameObject obj)
-    {
-        obj.GetComponent<GrabbableObjectBehaviour>().selected = true;
-        selectedMeshes = obj.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer mr in selectedMeshes)
-        {
-            if(mr.materials[0] == selectionMaterial) { continue; }
-            hiddenMaterials.Add(mr.materials);
-            Material[] whiteOut = new Material[mr.materials.Length];
-            for(int i = 0; i < whiteOut.Length; i++) { whiteOut[i] = selectionMaterial; }
-            mr.materials = whiteOut;
-        }
-    }
-
-    void ReturnToNormalMaterials()
-    {
-        if(grabBe != null)
-        {
-            Debug.Log("Triggered!");
-            grabBe.selected = false;
-        }
-
-        
-        for (int i = 0; i < hiddenMaterials.Count; i++)
-        {
-            selectedMeshes[i].materials = hiddenMaterials[i];
-        }
-        hiddenMaterials.Clear();
-    }
-
 
     float ForceToThis(string axis, GameObject objToBeFling)
     {

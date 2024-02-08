@@ -52,6 +52,9 @@ MonoBehaviour:
   modelParent: {fileID: 624892117850193424}
   models: []
   newParent: {fileID: 0}
+  rightControllerPointing: 0
+  leftControllerPointing: 0
+  whiteOut: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
 --- !u!54 &1315296554170129145
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class GrabbableObjectBehaviour : MonoBehaviour
     public GameObject modelParent;
     public MeshRenderer[] models;
     public Transform newParent;
-    public bool selected = false, lastselected = false;
+    public bool rightControllerPointing = false, leftControllerPointing = false;
     public Material whiteOut;
     List<Material[]> hiddenMaterials = new List<Material[]>(), whiteOutMaterials = new List<Material[]>();
     Rigidbody Rig;
@@ -34,30 +34,30 @@ public class GrabbableObjectBehaviour : MonoBehaviour
             whiteOutMaterials.Add(whiteOuts);
         }
 
-        Rig = this.GetComponent<Rigidbody>();
+        Rig = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-
-    public void Update()
+    public void UpdateSelected(int change, bool setVal)
     {
-        if(selected == lastselected) { return; }
-        lastselected = selected;
+        bool beforeChange = rightControllerPointing || leftControllerPointing;
 
-        if (selected) {
+        if (change == 1) { leftControllerPointing = setVal; } // Left Controller
+        if (change == 2) { rightControllerPointing = setVal; } // Right Controller
+
+        if (beforeChange == (rightControllerPointing || leftControllerPointing)) { return; }
+
+        if (rightControllerPointing || leftControllerPointing)
+        {
             for (int i = 0; i < hiddenMaterials.Count; i++)
             {
-                models[i].materials = hiddenMaterials[i];
+                models[i].materials = whiteOutMaterials[i];
             }
         }
         else
         {
-            foreach (MeshRenderer mr in models)
+            for (int i = 0; i < models.Length; i++)
             {
-                hiddenMaterials.Add(mr.materials);
-                Material[] whiteOuts = new Material[mr.materials.Length];
-                for (int i = 0; i < whiteOuts.Length; i++) { whiteOuts[i] = whiteOut; }
-                mr.materials = whiteOuts;
+                models[i].materials = hiddenMaterials[i];
             }
         }
     }
