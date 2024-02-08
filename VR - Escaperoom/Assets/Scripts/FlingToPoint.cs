@@ -33,7 +33,7 @@ public class FlingToPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hold.action.phase == InputActionPhase.Waiting && !grabing && Physics.Raycast(rayStartPoint.position, rayDirPoint.position - rayStartPoint.position, out RaycastHit hit) /* && !celect */)
+        if (hold.action.phase != InputActionPhase.Waiting && !grabing && Physics.Raycast(rayStartPoint.position, rayDirPoint.position - rayStartPoint.position, out RaycastHit hit) /* && !celect */)
         {
             Debug.DrawRay(rayStartPoint.position, (rayDirPoint.position - rayStartPoint.position) * 100);
 
