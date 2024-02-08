@@ -10,13 +10,8 @@ public class FlingToPoint : MonoBehaviour
     public float gravityAdder = 3f;
     public bool grabing = false;
     public InputActionReference trigger;
+    public InputActionReference hold;
     public GameObject lightObj;
-    public Color hoverColor;
-    public Color celectedColor;
-    public Color readyColor;
-    public float startIntens = 1f;
-    public float endIntens = 5f;
-    public float neededSpeedMultyplier = 1f;
     public Transform rayStartPoint, rayDirPoint;
     public Material selectionMaterial;
     List<Material[]> hiddenMaterials = new List<Material[]>();
@@ -39,7 +34,7 @@ public class FlingToPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!grabing && Physics.Raycast(rayStartPoint.position, rayDirPoint.position - rayStartPoint.position, out RaycastHit hit) /* && !celect */)
+        if (hold.action.phase == InputActionPhase.Waiting && !grabing && Physics.Raycast(rayStartPoint.position, rayDirPoint.position - rayStartPoint.position, out RaycastHit hit) /* && !celect */)
         {
             Debug.DrawRay(rayStartPoint.position, (rayDirPoint.position - rayStartPoint.position) * 100);
 
@@ -132,21 +127,6 @@ public class FlingToPoint : MonoBehaviour
             return   gravityAdder + (this.transform.position.y - objToBeFling.transform.position.y) * forceMultiplyer;
         }
         return 12f;
-    }
-    float IntenetyCordCalc(string axis)
-    {
-        if (axis == "x")
-        {
-            return (Mathf.Abs(transform.position.x) - Mathf.Abs(lastCord.x) / neededSpeed.x * (endIntens - startIntens));
-        }
-        else if (axis == "y")
-        {
-            return (Mathf.Abs(transform.position.y) - Mathf.Abs(lastCord.y) / neededSpeed.y * (endIntens - startIntens));
-        }
-        else
-        {
-            return (Mathf.Abs(transform.position.z) - Mathf.Abs(lastCord.z) / neededSpeed.z * (endIntens - startIntens));
-        }
     }
 
     public void grab() { grabing = true; }

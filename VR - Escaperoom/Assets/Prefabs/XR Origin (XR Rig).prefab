@@ -2757,13 +2757,8 @@ MonoBehaviour:
   gravityAdder: 3
   grabing: 0
   trigger: {fileID: 1787115779285788676, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  hold: {fileID: 7849568223604846737, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   lightObj: {fileID: 8827220301652339786}
-  hoverColor: {r: 0, g: 0.6745098, b: 1, a: 0}
-  celectedColor: {r: 1, g: 0.4627451, b: 0.08235294, a: 0}
-  readyColor: {r: 0.105882354, g: 1, b: 0, a: 0}
-  startIntens: 1
-  endIntens: 2
-  neededSpeedMultyplier: 25
   rayStartPoint: {fileID: 2366257367110653878}
   rayDirPoint: {fileID: 2865589270060751019}
   selectionMaterial: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
@@ -2967,13 +2962,8 @@ MonoBehaviour:
   grabing: 0
   trigger: {fileID: -1657804469033072114, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  hold: {fileID: -7194220064352850299, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   lightObj: {fileID: 578390381318577566}
-  hoverColor: {r: 0, g: 0.67542934, b: 1, a: 0}
-  celectedColor: {r: 1, g: 0.46249425, b: 0.08176094, a: 0}
-  readyColor: {r: 0.10746229, g: 1, b: 0, a: 0}
-  startIntens: 1
-  endIntens: 2
-  neededSpeedMultyplier: 25
   rayStartPoint: {fileID: 6188772954963285868}
   rayDirPoint: {fileID: 2511499820104206855}
   selectionMaterial: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
