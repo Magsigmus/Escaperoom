@@ -8270,6 +8270,7 @@ GameObject:
   - component: {fileID: 1665075407}
   - component: {fileID: 1665075412}
   - component: {fileID: 1665075413}
+  - component: {fileID: 1665075414}
   m_Layer: 0
   m_Name: BookSecretSwitch
   m_TagString: IgnoreReol
@@ -8660,6 +8661,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.122870356, y: 0.17265244, z: 0.11569235}
   m_Center: {x: 0.25930136, y: 0.032357484, z: -0.06531939}
+--- !u!114 &1665075414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665075405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae06df570604894ab10e2ffab0eec5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  modelParent: {fileID: 0}
+  models: []
+  newParent: {fileID: 0}
+  rightControllerPointing: 0
+  leftControllerPointing: 0
+  whiteOut: {fileID: 2100000, guid: ab7f4a1b1573a424882d2bf1784185d4, type: 2}
 --- !u!4 &1673447234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 683220480651565217, guid: 5cf72d430bd370a48991cb2e9aaa68d3,
